@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1 class="h3 mb-3 font-weight-normal">Register or <a href="{{ path('app_login') }}">login</a></h1>
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-control" required autofocus>
+        </div>
+        <div class="mb-3">
+            <label for="plainPassword" class="form-label">Password</label>
+            <input type="password" name="plainPassword" id="plainPassword" class="form-control" required>
+            {# <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"> #}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+{% endblock %}

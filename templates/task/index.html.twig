@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block body %}
+    {% if tasks is not empty %}
+        {% for task in tasks %}
+            <p>
+                <a href="{{ path('task_form', {'id': task.id}) }}">{{ task.title }}</a>
+                {% if task.dateCompleted is not null %}
+                    Completed on: {{ task.dateCompleted|date('Y-m-d H:i:s') }}
+                {% endif %}
+            </p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
